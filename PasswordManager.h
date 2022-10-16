@@ -3,8 +3,18 @@
 using namespace std;
 
 class PasswordManager {
+    private: 
+        string username;
+        string password;
+
+        string encrypt(string);
+        bool meetsCritera();
+    
     public: 
-        PasswordManager() : PasswordManager("", "") { } 
+        PasswordManager() : PasswordManager() { 
+            username = ""; 
+            password = "";
+        } 
         void setUsername(string);
         void setEncryptedPassword(string);
         string getUsername() { return username; }
@@ -13,11 +23,4 @@ class PasswordManager {
         bool authenticate(string);
 
 
-    private: 
-        string username;
-        string password;
-
-        string encrypt(string);
-        bool meetsCritera();
-    
 };
