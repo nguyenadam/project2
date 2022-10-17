@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "PasswordManager.cpp"
+#include "PasswordManager.h"
 #include <string.h>
 using namespace std;
 
@@ -47,7 +47,7 @@ bool updatePassword(string username, string oldPassword, string newPassword,
         cout << "Old password is incorrect" << endl;
         return false;
       }
-    }
+    } 
   }
   // could not find username in list
   cout << "Username is invalid, password not changed." << endl;
@@ -63,11 +63,11 @@ int main() {
   string username;
   string oldPassword;
   string newPassword;
-  cout << "Please enter your username";
+  cout << "Please enter your username: ";
   cin >> username;
-  cout << "Please enter your old password:";
+  cout << "Please enter your old password: ";
   cin >> oldPassword;
-  cout << "Please enter your new password:";
+  cout << "Please enter your new password: ";
   cin >> newPassword;
 
   // TODO inputs need to be cleaned

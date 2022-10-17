@@ -11,5 +11,6 @@ PasswordDriver.o: PasswordDriver.cpp PasswordManager.h
 PasswordManager.o: PasswordManager.cpp PasswordManager.h
 	g++ -c -std=c++11 PasswordManager.cpp
 
-
+clean: 
+	rm a.out
 

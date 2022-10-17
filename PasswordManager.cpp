@@ -11,15 +11,15 @@ void PasswordManager::setEncryptedPassword(string s) {
     password = s;
 }
 
-string encrypt(string password) {
-    string encryptedPassword = new string(password.length());
+string PasswordManager::encrypt(string password) {
+    char *encryptedPassword = new char[password.length()];
     for (int i = 0; i < password.length(); i ++) {
         encryptedPassword[i] = (password[i] - 33 + 25) % 94 + 33;
     }
     return encryptedPassword;
 }
 
-bool setNewPassword(string s) {
+bool PasswordManager::setNewPassword(string s) {
     if (meetsCriteria(s)) {
         password = encrypt(s);
         return true;
@@ -27,7 +27,7 @@ bool setNewPassword(string s) {
     return false;
 }
 
-bool authenticate(string input) {
+bool PasswordManager::authenticate(string input) {
     string encryptedInput = encrypt(input);
     if (encryptedInput == getEncryptedPassword()) {
         return true;
@@ -35,11 +35,11 @@ bool authenticate(string input) {
     return false;
 }
 
-bool meetsCriteria(string s) {
+bool PasswordManager::meetsCriteria(string s) {
     bool hasUppercase = false;
     bool hasLowerCase = false;
     bool hasDigit = false;
-    if (strlen(s) < 8) {
+    if (s.length() < 8) {
         return false;
     }
     for (int i = 0; i < s.length(); i ++) {

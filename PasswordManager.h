@@ -9,15 +9,15 @@ class PasswordManager
     private: 
         string username;
         string password;
-        string encrypt(string s);
-        bool meetsCritera();
+        string encrypt(string);
+        bool meetsCriteria(string);
     public: 
-        void setUsername(string s);
-        void setEncryptedPassword(string s);
+        void setUsername(string);
+        void setEncryptedPassword(string);
         string getUsername() { return username; }
         string getEncryptedPassword() { return password; }
-        bool setNewPassword(string s);
-        bool authenticate(string s);
+        bool setNewPassword(string);
+        bool authenticate(string);
 
 };
 #endif
